@@ -38,13 +38,13 @@ private:
     Position find_position(const sensor_msgs::Image img)
     {
         uint8_t white_pixel = 255;
-        Position pos = Position::no_ball;
+        Position pos = no_ball;
 
         for (int i = 0; i < img.height * img.step; i += 3)
         {
-            auto red = img.data[i];
-            auto green = img.data[i + 1];
-            auto blue = img.data[i + 2];
+            uint8_t red = img.data[i];
+            uint8_t green = img.data[i + 1];
+            uint8_t blue = img.data[i + 2];
 
             if (red == white_pixel && green == white_pixel && blue == white_pixel)
             {
